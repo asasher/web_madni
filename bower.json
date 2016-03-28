@@ -1,0 +1,9 @@
+{
+  "name": "madni-furnitures",
+  "version": "0.0.0",
+  "dependencies": {
+  	"angular" : "latest",
+  	"normalize-css" : "latest"
+  }
+}
+

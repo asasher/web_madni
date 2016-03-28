@@ -1,0 +1,72 @@
+//lemonade
+//based on https://github.com/dope/lemonade
+
+$prefix : "bit-";
+
+$break-mid : 480px;
+$break-large : 960px; 
+
+$gutter : 0px;
+
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+
+    /* Removes padding behavior on widths */
+    box-sizing: border-box;
+}
+
+@mixin lemon($pad)
+{
+	padding-left: $pad;
+	padding-right: $pad;
+
+	&:after
+	{
+		content: "";
+    	display: table;
+    	clear: both;
+	}
+
+}
+
+@mixin bit($sizes,$w : null)
+{	
+	$selector:".lemon .#{$prefix}#{nth($sizes,1)}";
+	$temp: 100% / nth($sizes,1);
+	@if length($sizes) > 1
+	{
+		$selector:"#{$selector}-#{nth($sizes,2)}";	
+		$temp: nth($sizes,1) * 100% / nth($sizes,2);
+	}
+	$w : $temp !default;
+	#{$selector} {
+		width: $w;
+	}
+}
+
+.lemon
+{
+	@include lemon($gutter);
+
+	//change to starts with
+	[class*="#{$prefix}"] {
+		width: 100%;
+		padding-right: $gutter;
+	    float: left;
+	    &:last-of-type {
+	    	padding-right:0px;
+	        float: right;
+	    }
+	}
+}
+
+@media (min-width:$break-mid) {
+	@include bit(2);
+	@include bit(3,50%);
+}
+@media (min-width:$break-large) {
+	@include bit(3);
+}
