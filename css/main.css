@@ -1,0 +1,120 @@
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  /* Removes padding behavior on widths */
+  box-sizing: border-box;
+}
+
+.lemon {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.lemon:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.lemon [class*="bit-"] {
+  width: 100%;
+  padding-right: 0px;
+  float: left;
+}
+.lemon [class*="bit-"]:last-of-type {
+  padding-right: 0px;
+  float: right;
+}
+
+@media (min-width: 480px) {
+  .lemon .bit-2 {
+    width: 50%;
+  }
+
+  .lemon .bit-3 {
+    width: 50%;
+  }
+}
+@media (min-width: 960px) {
+  .lemon .bit-3 {
+    width: 33.33333%;
+  }
+}
+body {
+  background-color: #fff;
+}
+
+.lemon {
+  height: 100%;
+}
+
+.info-bar {
+  position: absolute;
+  height: 258px;
+  top: 40%;
+  margin-top: -129px;
+  opacity: 0.8;
+}
+
+.logo {
+  width: 258px;
+  float: right;
+}
+.logo:after {
+  float: none;
+  clear: both;
+}
+
+.info {
+  background-color: #222;
+  color: #fff;
+  width: 300px;
+  padding: 10px;
+  position: absolute;
+  top: 0px;
+  line-height: 1.2em;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  overflow: hidden;
+  background-color: #dddddd;
+}
+.hero-bg img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  opacity: 1;
+}
+
+.map {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+.animate {
+  transition: all ease-in-out 1s;
+}
+
+.info.animate {
+  transition: all 0.5s ease-in-out 0.3s;
+}
+
+.animate.ng-hide {
+  opacity: 0;
+  display: block !important;
+  pointer-events: none;
+}
+
+.info.animate.ng-hide {
+  line-height: 0em;
+  opacity: 0;
+}
